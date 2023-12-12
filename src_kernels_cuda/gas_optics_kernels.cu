@@ -668,6 +668,7 @@ void gas_optical_depths_minor_kernel_serial(
 
     // idx_collay = icol + ilay * ncol
 
+    #pragma omp parallel for
     for (int idx_collay = 0; idx_collay < ncol * nlay; ++idx_collay) {
         if (tropo[idx_collay] == idx_tropo) {
             for (int imnr = 0; imnr < nminor; ++imnr) {
