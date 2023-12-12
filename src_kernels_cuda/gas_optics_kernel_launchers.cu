@@ -1,4 +1,5 @@
 #include <chrono>
+#include <cuda_device_runtime_api.h>
 #include <functional>
 #include <iostream>
 #include <iomanip>
@@ -353,6 +354,7 @@ namespace rrtmgp_kernel_launcher_cuda
                                         */
 
 
+        cudaDeviceSynchronize();
         gas_optical_depths_minor_kernel_serial(
                                         ncol, nlay, ngpt,
                                         ngas, nflav, ntemp, neta,
